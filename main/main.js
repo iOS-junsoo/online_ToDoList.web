@@ -5,6 +5,7 @@ let send_Todo_Content = [];
 let titleArrayToJson;
 let contentArrayToJson;
 
+// 브라우저 준비완료시 작동하는 코드
 window.onload = function() { 
 
     if (localStorage.getItem('todo_title') == null || localStorage.getItem('todo_content') == null) {
@@ -30,6 +31,8 @@ window.onload = function() {
     } 
      
 }
+
+// 할 일 목록 추가 버튼
 
 $('#add').click(function(){
     $('.add_Area').css('display', 'block');
