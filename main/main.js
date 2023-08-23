@@ -20,8 +20,8 @@ window.onload = function() {
         for (i = 0 ; i < read_Todo_Title.length ; i++) {
             var newToDo = `<div class="list">
             <input type="checkbox" id="check_box" name="check_box"/>
-            <span id="list_title">${read_Todo_Title[i]}</span>
-            <button id="delete"><i class="fa-regular fa-trash-can"></i></button>
+            <span class="list_title">${read_Todo_Title[i]}</span>
+            <button class="delete"><i class="fa-regular fa-trash-can"></i></button>
             </div>`
             $('#list_Area').append(newToDo);
             send_Todo_Title.push(read_Todo_Title[i]);
@@ -66,7 +66,7 @@ $('#add_Btn').click(function(){
 
 $('#close_Btn').click(function(){
     $('.add_Area').css('display', 'none');
-})
+});
 
 
 $('.list').click(function(){
@@ -75,6 +75,40 @@ $('.list').click(function(){
     $('#all_Complete').css('display', 'none');
     $('#title').css('padding', '0px');
     $('#title').html('html 공부하기')
-
     $('#content_Area').html('html 공부하기')
-})
+});
+
+
+// title 클릭 시 화면 html 변경
+$('#list_Area').click(function(e){
+
+    var indexTodo = read_Todo_Title.indexOf(`${e.target.textContent}`);
+    
+    for (i = 0; i < $('.list_title').length; i++) {
+        if (e.target == document.getElementsByClassName('list_title')[i]) {
+            $('#list_Area').html('');
+            $('#add').css('display', 'none');
+            $('#all_Complete').css('display', 'none');
+            $('#title').css('padding', '0px');
+            $('#title').html(`${e.target.textContent}`)
+            $('#content_Area').html(`${read_Todo_Content[indexTodo]}`)
+        }
+    }
+    
+});
+
+$('#list_Area').click(function(e){
+    console.log(e.target, document.getElementById('check_box'));
+    
+});
+
+// $('input[id=checkbox]').click(function(){
+    
+    
+// })
+
+// $('input[name=check_box]').click(function(){
+
+//     console.log(1111);
+    
+// });

@@ -66,7 +66,7 @@ main {
     transform : scale(1.7);
 }
 
-#list_title {
+.list_title {
     padding-left: 20px;
     color: var(--text-color);
 }
@@ -81,7 +81,7 @@ main {
     padding-bottom: 15px;
 }
 
-#delete {
+.delete {
     color: var(--text-color);
     float: right;
 }
