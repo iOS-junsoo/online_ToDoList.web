@@ -111,6 +111,8 @@ $('#list_Area').click(function(e){
     
 });
 
+// 체크박스 + 삭제
+
 $('#list_Area').click(function(e){
 
     if (e.target == document.getElementById('check_box')) {
