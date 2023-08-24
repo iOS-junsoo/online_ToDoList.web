@@ -90,7 +90,7 @@ footer {
     text-align: center;
 }
 
-#all_Complete {
+#all_Complete, #back_Btn {
     background-color: var(--button-color);
     padding: 10px 25px;
     border-radius: 5px;

@@ -32,6 +32,30 @@ window.onload = function() {
      
 }
 
+// 뒤로가기 버튼 클릭
+$('footer').click(function(e){
+    
+    if (e.target == document.getElementById('back_Btn')) {
+        $('#title').html('TO DO LIST');
+        $('#content_Area').html('');
+        $('#title').css('padding-left', '345px');
+        $('#add').css('display', 'block');
+        for (i = 0; i < read_Todo_Title.length; i++) {
+            var newToDo = `<div class="list">
+                <input type="checkbox" id="check_box" name="check_box"/>
+                <span class="list_title">${read_Todo_Title[i]}</span>
+                <button class="delete"><i class="fa-regular fa-trash-can"></i></button>
+                </div>`
+            $('#list_Area').append(newToDo);
+            send_Todo_Title.push(read_Todo_Title[i]);
+            send_Todo_Content.push(read_Todo_Content[i]);
+        }
+
+
+    }
+    
+})
+
 // 할 일 목록 추가 버튼
 
 $('#add').click(function(){
@@ -47,8 +71,8 @@ $('#add_Btn').click(function(){
 
     var newToDo = `<div class="list">
     <input type="checkbox" id="check_box" name="check_box"/>
-    <span id="list_title">${$('#ToDo_title').val()}</span>
-    <button id="delete"><i class="fa-regular fa-trash-can"></i></button>
+    <span class="list_title">${$('#ToDo_title').val()}</span>
+    <button class="delete"><i class="fa-regular fa-trash-can"></i></button>
     </div>`
     $('#list_Area').append(newToDo);
 
@@ -68,17 +92,6 @@ $('#close_Btn').click(function(){
     $('.add_Area').css('display', 'none');
 });
 
-
-$('.list').click(function(){
-    $('#list_Area').html('');
-    $('#add').css('display', 'none');
-    $('#all_Complete').css('display', 'none');
-    $('#title').css('padding', '0px');
-    $('#title').html('html 공부하기')
-    $('#content_Area').html('html 공부하기')
-});
-
-
 // title 클릭 시 화면 html 변경
 $('#list_Area').click(function(e){
 
@@ -88,7 +101,8 @@ $('#list_Area').click(function(e){
         if (e.target == document.getElementsByClassName('list_title')[i]) {
             $('#list_Area').html('');
             $('#add').css('display', 'none');
-            $('#all_Complete').css('display', 'none');
+            $('footer').html('');
+            $('footer').append(`<button id="back_Btn" style="text-align: center;">뒤로 가기</button>`);
             $('#title').css('padding', '0px');
             $('#title').html(`${e.target.textContent}`)
             $('#content_Area').html(`${read_Todo_Content[indexTodo]}`)
@@ -98,17 +112,18 @@ $('#list_Area').click(function(e){
 });
 
 $('#list_Area').click(function(e){
-    console.log(e.target, document.getElementById('check_box'));
+
+    if (e.target == document.getElementById('check_box')) {
+        e.target.nextElementSibling.style.textDecoration = "line-through";
+    }
+
+    for (i = 0; i < $('.list_title').length; i++) { 
+        if (e.target == document.getElementsByClassName('fa-regular fa-trash-can')[i]) {
+            $(e.target.parentNode.parentNode).html('')
+            // TODO: 프론트에서만 삭제된것이 아니라 백에서도 삭제되도록
+        }
+    }
+
+    
     
 });
-
-// $('input[id=checkbox]').click(function(){
-    
-    
-// })
-
-// $('input[name=check_box]').click(function(){
-
-//     console.log(1111);
-    
-// });
