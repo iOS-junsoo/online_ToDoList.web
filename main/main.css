@@ -62,7 +62,7 @@ main {
     padding: 40px 150px;
 }
 
-#check_box {
+.check_box {
     transform : scale(1.7);
 }
 
