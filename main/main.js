@@ -186,6 +186,6 @@ $('#all_Complete').click(function(){
         isChecked[i] = true;
     }
 
-    //TODO: 체크여부 배열을 local storage에도 저장해서 새로고침해도 체크 된 것 표기하기
+    //TODO: 체크여부 배열을 local storage에도 저장해서 새로고침해도 체크 된 것 표기하기.
 })
 
