@@ -112,21 +112,12 @@ $('#add_Btn').click(function(){
 
     $('.add_Area').css('display', 'none');
 
-    var newToDo
+    var newToDo = `<div class="list">
+    <input type="checkbox" class="check_box" name="check_box"/>
+    <span class="list_title">${$('#ToDo_title').val()}</span>
+    <button class="delete"><i class="fa-regular fa-trash-can"></i></button>
+    </div>`
 
-    if (send_Check_List[i] == true) {
-        newToDo = `<div class="list">
-        <input type="checkbox" class="check_box" name="check_box" checked/>
-        <span class="list_title" style="text-decoration: line-through;">${$('#ToDo_title').val()}</span>
-        <button class="delete"><i class="fa-regular fa-trash-can"></i></button>
-        </div>`
-    } else {
-        newToDo = `<div class="list">
-        <input type="checkbox" class="check_box" name="check_box"/>
-        <span class="list_title" style="text-decoration: none;">${$('#ToDo_title').val()}</span>
-        <button class="delete"><i class="fa-regular fa-trash-can"></i></button>
-        </div>`
-    }
 
     console.log(`3read_Check_List: ${read_Check_List}`);
     console.log(`3send_Check_List: ${send_Check_List}`);
